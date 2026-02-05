@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
-
 :root {
   /* Default Dark Mode */
   --bg-color: #050505;
@@ -551,19 +549,24 @@ a {
 }
 
 /* Project Image Placeholder */
-.project-img {
+.project-img-container {
   width: 100%;
   height: 220px;
   background: rgba(255, 255, 255, 0.02);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--primary-color);
-  font-family: var(--font-mono);
   border-bottom: 1px solid var(--border-color);
   border-radius: 20px 20px 0 0;
   position: relative;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.project-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition);
 }
 
 .project-category-overlay {
@@ -578,11 +581,11 @@ a {
   color: var(--primary-color);
   text-transform: uppercase;
   letter-spacing: 0.1em;
+  z-index: 2;
 }
 
 .project-card:hover .project-img {
   transform: scale(1.05);
-  transition: var(--transition);
 }
 
 .project-info {

@@ -238,37 +238,37 @@ const ClientShowcase = () => {
   );
 };
 
+
+
 const Services = () => {
   const services = [
     {
-      title: "CCNA Labs in Cisco Packet Tracer",
-      icon: "🔧",
-      description: "Professional CCNA lab setup and configuration in Cisco Packet Tracer",
-      features: ["Network Design", "VLAN Configuration", "Routing Protocols", "Network Troubleshooting"],
-      rating: "5.0 (13 reviews)",
-      price: "From PKR 4,406",
-      delivery: "1-2 days",
-      link: "https://www.fiverr.com/technicalmusaib"
+      title: "Offensive Security",
+      icon: "⚔️",
+      description: "Ethical Hacking, Vulnerability Research, OWASP Top 10, Active Directory Attacks, and Exploit Development.",
+      features: ["Penetration Testing", "Vulnerability Assessment", "Red Teaming", "Exploit Development"],
+      link: "https://wa.me/+923133236723"
     },
     {
-      title: "Cisco Packet Tracer & Networking Tasks",
-      icon: "🌐",
-      description: "Expert support for CCNA, CCNP, GNS3 and all networking related tasks",
-      features: ["Packet Tracer Projects", "GNS3 Configuration", "Network Simulation", "CCNP Support"],
-      rating: "4.8 (3 reviews)",
-      price: "From PKR 4,406",
-      delivery: "2-3 days",
-      link: "https://www.fiverr.com/technicalmusaib"
-    },
-    {
-      title: "Network Security & Support",
+      title: "Defense & Networking",
       icon: "🛡️",
-      description: "Comprehensive network security audits and technical support services",
-      features: ["Security Audits", "Vulnerability Assessment", "Network Hardening", "Technical Support"],
-      rating: "4.5 (2 reviews)",
-      price: "From PKR 4,406",
-      delivery: "3-5 days",
-      link: "https://www.fiverr.com/technicalmusaib"
+      description: "Firewall Policy Management, IDS/IPS Tuning, BGP/OSPF Routing, Network Automation (Python), and VPN Architecture.",
+      features: ["Network Hardening", "Infrastructure Security", "Secure Architecture", "Automated Defense"],
+      link: "https://wa.me/+923133236723"
+    },
+    {
+      title: "Tools of the Trade",
+      icon: "🧰",
+      description: "Expert utilization of Nmap, Burp Suite Pro, Metasploit, Kali Linux, Wireshark, FTK Imager, and Splunk.",
+      features: ["Tool-based Auditing", "Forensic Analysis", "Traffic Analysis", "Security Monitoring"],
+      link: "https://wa.me/+923133236723"
+    },
+    {
+      title: "Cloud & Systems",
+      icon: "☁️",
+      description: "AWS Security, Linux Hardening, Docker Security, SQL Administration, and Scripting (Python/Bash).",
+      features: ["Cloud Security", "Container Security", "OS Hardening", "Database Security"],
+      link: "https://wa.me/+923133236723"
     }
   ];
 
@@ -276,16 +276,13 @@ const Services = () => {
     <section id="services" className="services">
       <h2 className="section-title">My <span>Services</span></h2>
       <p style={{ textAlign: 'center', color: 'var(--text-secondary)', marginBottom: '3rem', fontSize: '1.1rem' }}>
-        Available on Fiverr • Fast Delivery • 100% Satisfaction Guaranteed
+        Professional Security Services • Contact for Custom Solutions
       </p>
       <div className="services-grid">
         {services.map((service, i) => (
           <div key={i} className="service-card glass animate" style={{ animationDelay: `${i * 0.1}s` }}>
             <div className="service-icon">{service.icon}</div>
             <h3 className="service-title">{service.title}</h3>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem', justifyContent: 'center' }}>
-              <span style={{ color: '#FFD700', fontSize: '0.9rem' }}>⭐ {service.rating}</span>
-            </div>
             <p className="service-desc">{service.description}</p>
             <ul className="service-features">
               {service.features.map((feature, idx) => (
@@ -293,16 +290,8 @@ const Services = () => {
               ))}
             </ul>
             <div style={{ marginTop: 'auto' }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
-                <p style={{ color: 'var(--primary-color)', fontWeight: '600', fontSize: '1.1rem', margin: 0 }}>
-                  {service.price}
-                </p>
-                <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', margin: 0 }}>
-                  ⏱️ {service.delivery}
-                </p>
-              </div>
               <a href={service.link} target="_blank" rel="noopener noreferrer" className="btn btn-outline service-cta">
-                Order on Fiverr
+                Contact Us
               </a>
             </div>
           </div>
@@ -311,6 +300,7 @@ const Services = () => {
     </section>
   );
 };
+
 
 const Specializations = () => {
   const specs = [
@@ -425,7 +415,15 @@ const Projects = () => {
       <div className="projects-grid">
         {projects.map((proj, index) => (
           <div key={index} className="project-card glass animate" style={{ animationDelay: `${index * 0.1}s` }}>
-            <div className="project-img" role="img" aria-label={proj.title} style={{ backgroundImage: `url(${proj.image})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+            <div className="project-img-container">
+              <img
+                src={proj.image}
+                alt={proj.title}
+                className="project-img"
+                loading="lazy"
+                width="100%"
+                height="220"
+              />
               <div className="project-category-overlay">{proj.category}</div>
             </div>
             <div className="project-info">
@@ -441,7 +439,7 @@ const Projects = () => {
                   <span key={tIndex} className="skill-tag">{tag}</span>
                 ))}
               </div>
-              <button onClick={() => setSelectedProject(proj)} className="btn btn-outline" style={{ padding: '0.4rem 1.2rem', fontSize: '0.8rem', marginTop: '1rem' }}>View Details</button>
+              <a href="https://wa.me/+923133236723" target="_blank" rel="noopener noreferrer" className="btn btn-outline" style={{ padding: '0.4rem 1.2rem', fontSize: '0.8rem', marginTop: '1rem', display: 'inline-block' }}>Contact Me</a>
             </div>
           </div>
         ))}
@@ -536,7 +534,7 @@ const FAQ = () => {
     },
     {
       question: "What payment methods do you accept?",
-      answer: "I accept payments through Fiverr (credit card, PayPal, etc.). For enterprise clients, we can discuss direct payment options."
+      answer: "I accept payments through Bank Transfer, Payoneer, and Crypto. Contact me to discuss the best option for you."
     },
     {
       question: "Can you handle urgent/rush orders?",
@@ -568,49 +566,49 @@ const Testimonials = () => {
     {
       text: "I needed something done ASAP and he did it as fast as humanly possible and made it look great. I 100% recommend anyone to use his services. He is quick and effective. Good price as well, didn't overcharge me or anything. I appreciate him to the max!",
       author: "mattaqube",
-      role: "Germany 🇩🇪 • Fiverr Client",
+      role: "Germany 🇩🇪 • Client",
       rating: 5
     },
     {
       text: "Second time purchasing from him. It was just as quick and effective as the first time. I recommend anyone in a rush to use him as he is super fast and effective. I appreciate it very much! 100% recommend.",
       author: "mattaqube",
-      role: "Germany 🇩🇪 • Fiverr Client",
+      role: "Germany 🇩🇪 • Client",
       rating: 5
     },
     {
       text: "As usual, the work is perfect, the seller did an awesome job and delivered the work in no time. This is my second time working with him and not the last. I highly recommend working with him for perfect work.",
       author: "hasannoha",
-      role: "Oman 🇴🇲 • Fiverr Client",
+      role: "Oman 🇴🇲 • Client",
       rating: 5
     },
     {
       text: "Really good to communicate with, and gets the job done on time.",
       author: "ahmedsheikh03",
-      role: "Canada 🇨🇦 • Fiverr Client",
+      role: "Canada 🇨🇦 • Client",
       rating: 5
     },
     {
       text: "Great work and very fast!",
       author: "revnrepair",
-      role: "United States 🇺🇸 • Fiverr Client",
+      role: "United States 🇺🇸 • Client",
       rating: 5
     },
     {
       text: "Professional and On time delivery",
       author: "olawaleolagunju",
-      role: "United States 🇺🇸 • Fiverr Client",
+      role: "United States 🇺🇸 • Client",
       rating: 5
     },
     {
       text: "The seller know what he do, he is a fast worker and his work has the quality needed to fulfill the requirement. Thank you.",
       author: "hasannoha",
-      role: "Oman 🇴🇲 • Fiverr Client",
+      role: "Oman 🇴🇲 • Client",
       rating: 5
     },
     {
       text: "He is super and actually surprised me about fast delivery",
       author: "maryamahmed147",
-      role: "Saudi Arabia 🇸🇦 • Fiverr Client",
+      role: "Saudi Arabia 🇸🇦 • Client",
       rating: 5
     }
   ];
@@ -619,21 +617,7 @@ const Testimonials = () => {
     <section className="testimonials">
       <h2 className="section-title">Client <span>Reviews</span></h2>
 
-      {/* Fiverr Badge */}
-      <div className="fiverr-badge glass animate" style={{ maxWidth: '600px', margin: '0 auto 4rem', padding: '2rem', textAlign: 'center' }}>
-        <div style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>⭐</div>
-        <h3 style={{ color: 'var(--primary-color)', marginBottom: '0.5rem', fontSize: '1.5rem' }}>Top Rated on Fiverr</h3>
-        <p style={{ color: 'var(--text-secondary)', marginBottom: '1.5rem' }}>Trusted by 50+ clients worldwide</p>
-        <a
-          href="https://www.fiverr.com/technicalmusaib"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="btn btn-outline"
-          style={{ padding: '0.8rem 2rem' }}
-        >
-          View My Fiverr Profile
-        </a>
-      </div>
+      {/* Fiverr Badge Removed */}
 
       <div className="skills-grid">
         {testimonials.map((t, i) => (
@@ -747,8 +731,13 @@ const ContactForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true);
     const form = e.target;
+    // Honeypot check
+    if (form.bot_field.value) {
+      return; // Silently fail for bots
+    }
+
+    setLoading(true);
     const data = new FormData(form);
 
     try {
@@ -776,6 +765,9 @@ const ContactForm = () => {
   return (
     <form onSubmit={handleSubmit} className="contact-form glass animate" style={{ animationDelay: '0.2s' }}>
       <input type="hidden" name="_subject" value="New Portfolio Message from Web" />
+      {/* Honeypot field (hidden from users) */}
+      <input type="text" name="bot_field" style={{ display: 'none' }} tabIndex="-1" autoComplete="off" />
+
       <div className="form-group">
         <label>Name</label>
         <input type="text" name="name" placeholder="Your Name" required />
