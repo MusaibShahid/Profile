@@ -1057,6 +1057,12 @@ a {
   }
 }
 
+.cert-item-clickable:hover {
+  background: rgba(0, 255, 136, 0.08) !important;
+  border-color: var(--primary-color) !important;
+  transform: translateX(5px);
+}
+
 .certifications-card {
   padding: 2.5rem;
 }

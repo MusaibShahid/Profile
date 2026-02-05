@@ -130,19 +130,22 @@ const Hero = () => {
       <div className="hero-content">
         <div className="hero-text animate">
           <h1 className="hero-title">
-            MUSAIB <span>SHAHID</span>
+            SECURE YOUR <span>INFRASTRUCTURE</span>
           </h1>
-          <h2 className="hero-subtitle">Penetration Tester | Network & Security Engineer</h2>
+          <h2 className="hero-subtitle">Certified Penetration Testing & Network Security</h2>
           <p className="hero-desc">
-            CEH & CHFI-certified professional with hands-on experience in network security,
-            vulnerability assessment, and ethical hacking. Securing ISP and enterprise networks.
+            I help businesses identify vulnerabilities before hackers do.
+            Expert in Web Application Security, Network Hardening, and Compliance Audits.
           </p>
+          <br />
           <div className="hero-btns">
-            <a href="#contact" className="btn btn-primary">Get Free Consultation</a>
-            <a href="#services" className="btn btn-outline">View Services</a>
+            <a href="https://wa.me/+923133236723?text=Hi,%20I%20need%20a%20security%20audit%20for%20my%20business." target="_blank" rel="noopener noreferrer" className="btn btn-primary">
+              Get Your Security Audit
+            </a>
+            <a href="#services" className="btn btn-outline">View Solutions</a>
           </div>
           <p className="hero-availability">
-            <span className="status-dot"></span> Available for new projects
+            <span className="status-dot"></span> Available for new projects • <strong>NDA Available</strong>
           </p>
         </div>
         <div className="hero-visual animate" style={{ animationDelay: '0.2s' }}>
@@ -154,6 +157,16 @@ const Hero = () => {
 };
 
 const About = () => {
+  const [selectedCert, setSelectedCert] = useState(null);
+
+  const certifications = [
+    { name: "Certified Ethical Hacker (CEH)", issuer: "EC-Council", icon: "🔐", image: "/ceh_certificate.jpg" },
+    { name: "Computer Hacking Forensic Investigator (CHFI)", issuer: "EC-Council", icon: "🔍", image: "/chfi_certificate.jpg" },
+    { name: "Cisco Certified Network Associate (CCNA)", issuer: "Cisco", icon: "🌐" },
+    { name: "Fortinet Certified Associate", issuer: "Fortinet", icon: "🛡️" },
+    { name: "ISO/IEC 27001 Associate", issuer: "ISO", icon: "📋" },
+  ];
+
   return (
     <section id="about" className="about">
       <h2 className="section-title">Professional <span>Summary</span></h2>
@@ -174,20 +187,51 @@ const About = () => {
           </p>
         </div>
         <div className="about-stats animate" style={{ animationDelay: '0.2s' }}>
-          <div className="glass certifications-card">
-            <h3 style={{ color: 'var(--primary-color)', marginBottom: '1rem' }}>Certifications</h3>
-            <ul className="skill-list">
-              <li className="skill-tag">CEH (EC-Council)</li>
-              <li className="skill-tag">CHFI (EC-Council)</li>
-              <li className="skill-tag">Cisco CCNA</li>
-              <li className="skill-tag">Fortinet Certified Associate</li>
-              <li className="skill-tag">ISO/IEC 27001 Associate</li>
-              <li className="skill-tag">SQL Injection Attacks</li>
-              <li className="skill-tag">Android Pentesting</li>
-            </ul>
+          <div className="glass certifications-card" style={{ padding: '2rem' }}>
+            <h3 style={{ color: 'var(--primary-color)', marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              <span>🎖️</span> Verified Certifications
+            </h3>
+            <div className="cert-list" style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+              {certifications.map((cert, index) => (
+                <div key={index}
+                  onClick={() => cert.image && setSelectedCert(cert)}
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '1rem',
+                    padding: '1rem',
+                    background: 'rgba(255, 255, 255, 0.03)',
+                    borderRadius: '12px',
+                    border: '1px solid var(--border-color)',
+                    cursor: cert.image ? 'pointer' : 'default',
+                    transition: 'all 0.3s ease'
+                  }}
+                  className={cert.image ? "cert-item-clickable" : ""}
+                >
+                  <div style={{ fontSize: '1.5rem' }}>{cert.icon}</div>
+                  <div>
+                    <h4 style={{ color: 'var(--text-primary)', fontSize: '0.95rem', fontWeight: '600' }}>{cert.name}</h4>
+                    <p style={{ color: 'var(--text-secondary)', fontSize: '0.8rem', fontFamily: 'var(--font-mono)' }}>{cert.issuer}</p>
+                  </div>
+                  <div style={{ marginLeft: 'auto', color: 'var(--primary-color)' }}>
+                    {cert.image ? "👁️" : "✓"}
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
+
+      {selectedCert && (
+        <div className="modal-overlay" onClick={() => setSelectedCert(null)}>
+          <div className="modal-content glass" style={{ maxWidth: '900px', padding: '1rem' }} onClick={e => e.stopPropagation()}>
+            <button className="modal-close" onClick={() => setSelectedCert(null)}>&times;</button>
+            <img src={selectedCert.image} alt={selectedCert.name} style={{ width: '100%', borderRadius: '12px' }} />
+            <h3 style={{ textAlign: 'center', marginTop: '1rem', color: 'var(--primary-color)' }}>{selectedCert.name}</h3>
+          </div>
+        </div>
+      )}
     </section>
   );
 };
@@ -411,7 +455,7 @@ const Projects = () => {
 
   return (
     <section id="projects" className="projects">
-      <h2 className="section-title">Security <span>Labs</span></h2>
+      <h2 className="section-title">Case Studies & <span>Success Stories</span></h2>
       <div className="projects-grid">
         {projects.map((proj, index) => (
           <div key={index} className="project-card glass animate" style={{ animationDelay: `${index * 0.1}s` }}>
@@ -431,7 +475,7 @@ const Projects = () => {
               <p className="project-desc">{proj.desc}</p>
               <div style={{ margin: '1rem 0', padding: '0.8rem', background: 'rgba(0, 255, 136, 0.05)', borderRadius: '8px', borderLeft: '3px solid var(--primary-color)' }}>
                 <p style={{ fontSize: '0.9rem', color: 'var(--text-primary)', margin: 0 }}>
-                  <span style={{ color: 'var(--primary-color)', fontWeight: 'bold' }}>Result:</span> {proj.result}
+                  <span style={{ color: 'var(--primary-color)', fontWeight: 'bold' }}>Business Impact:</span> {proj.result}
                 </p>
               </div>
               <div className="project-tags">
@@ -468,33 +512,33 @@ const HowIWork = () => {
   const steps = [
     {
       number: "01",
-      title: "Requirements Discussion",
-      description: "We discuss your project needs, goals, and timeline",
+      title: "Discovery & Scoping",
+      description: "Defining the scope, rules of engagement, and signing NDAs.",
       icon: "📋"
     },
     {
       number: "02",
-      title: "Analysis & Planning",
-      description: "I analyze requirements and create a detailed action plan",
+      title: "Vulnerability Assessment",
+      description: "Automated scanning and manual reconnaissance to identify weak points.",
       icon: "🔍"
     },
     {
       number: "03",
-      title: "Implementation",
-      description: "Execute the project with regular updates on progress",
-      icon: "⚙️"
+      title: "Exploitation & Validation",
+      description: "Simulating real-world attacks to validate security holes (Safe PoC).",
+      icon: "⚔️"
     },
     {
       number: "04",
-      title: "Testing & Delivery",
-      description: "Thorough testing and delivery with complete documentation",
-      icon: "✅"
+      title: "Reporting & Remediation",
+      description: "Detailed technical report with step-by-step patch instructions.",
+      icon: "📝"
     },
     {
       number: "05",
-      title: "Support & Revisions",
-      description: "Post-delivery support and revisions if needed",
-      icon: "🔄"
+      title: "Post-Fix Verification",
+      description: "Re-testing to ensure all vulnerabilities are successfully closed.",
+      icon: "✅"
     }
   ];
 
@@ -521,28 +565,28 @@ const HowIWork = () => {
 const FAQ = () => {
   const faqs = [
     {
-      question: "Do you offer revisions?",
-      answer: "Yes! I offer revisions to ensure you're 100% satisfied with the work. Revisions are included in the package."
+      question: "Do you sign NDAs (Non-Disclosure Agreements)?",
+      answer: "Yes, absolutely. I strictly adhere to confidentiality protocols and am happy to sign an NDA before any project details are shared."
     },
     {
-      question: "What's your average response time?",
-      answer: "I typically respond within 1 hour during business hours. For urgent projects, I'm available for priority support."
+      question: "What security methodologies do you follow?",
+      answer: "I follow industry-standard frameworks including OWASP Top 10, PTES (Penetration Testing Execution Standard), and OSSTMM."
     },
     {
       question: "Do you work with international clients?",
-      answer: "Absolutely! I've worked with clients from USA, Germany, Canada, Oman, Saudi Arabia, and many other countries."
+      answer: "Yes! I've worked with clients from USA, Germany, Canada, Oman, Saudi Arabia, and many other countries."
     },
     {
-      question: "What payment methods do you accept?",
-      answer: "I accept payments through Bank Transfer, Payoneer, and Crypto. Contact me to discuss the best option for you."
+      question: "What is your reporting format?",
+      answer: "You receive a comprehensive report containing an Executive Summary for management and a Technical Guide for your developers."
     },
     {
       question: "Can you handle urgent/rush orders?",
-      answer: "Yes! I offer fast-track delivery for urgent projects. Contact me before ordering to confirm availability."
+      answer: "Yes! I offer fast-track delivery for urgent security incidents. Contact me via WhatsApp for immediate response."
     },
     {
-      question: "What if I need help after delivery?",
-      answer: "I provide post-delivery support to ensure everything works perfectly. You can reach out anytime for assistance."
+      question: "What if problems persist after the audit?",
+      answer: "My service includes Post-Fix Verification. I re-test your systems after you apply patches to ensure the vulnerabilities are gone."
     }
   ];
 
